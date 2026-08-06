@@ -1,2 +1,9 @@
 /* Los estilos están embebidos temporalmente en index.html.
 En la siguiente versión se moverán aquí. */
+@media(max-width:768px){
+    .whatsapp-float{
+        width:58px;
+        height:58px;
+        right:18px;
+        bottom:18px;
+    }

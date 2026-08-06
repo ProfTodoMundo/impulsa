@@ -27,6 +27,8 @@
       --sombra-suave:0 12px 30px rgba(23,50,77,.07);
       --radio:26px;
       --ancho:1220px;
+      --blanco:#ffffff;
+      --verde:#25D366;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -540,9 +542,34 @@
       section{padding:4.2rem 0}
       .cta{padding:3rem 1.2rem}
     }
+    .whatsapp-flotante {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--blanco);
+  background: var(--verde);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.34);
+  font-size: 1.55rem;
+  font-weight: 900;
+}
   </style>
-</head>
 
+</head>
+<a
+    class="whatsapp-flotante"
+    href="https://wa.me/5214423210333?text=Hola%20Carlos,%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20Impulsa."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+>
+    💬
+</a>
 <body>
   <header class="barra">
     <div class="contenedor nav">
