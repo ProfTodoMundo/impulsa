@@ -452,6 +452,217 @@
       fill: currentColor;
     }
 
+
+    /* GALERÍAS NAVEGABLES */
+
+    .gallery-card {
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .gallery-card:hover,
+    .gallery-card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(0,0,0,.13);
+      outline: none;
+    }
+
+    .project-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image-wrap > img {
+      transition: transform .35s ease;
+    }
+
+    .gallery-card:hover .project-image-wrap > img {
+      transform: scale(1.035);
+    }
+
+    .gallery-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8,12,16,.62);
+      color: #fff;
+      font-weight: 800;
+      opacity: 0;
+      transition: opacity .22s ease;
+    }
+
+    .gallery-card:hover .gallery-hover,
+    .gallery-card:focus-visible .gallery-hover {
+      opacity: 1;
+    }
+
+    .gallery-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .gallery-count {
+      margin: 8px 0 0;
+      color: var(--gris);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.94);
+      padding: 24px 72px 58px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: calc(100vh - 125px);
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+      box-shadow: 0 18px 70px rgba(0,0,0,.45);
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      z-index: 2;
+      border: 0;
+      color: #fff;
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: var(--rojo);
+    }
+
+    .lightbox-close {
+      top: 18px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 72px;
+      border-radius: 12px;
+      font-size: 2.2rem;
+    }
+
+    .lightbox-prev { left: 14px; }
+    .lightbox-next { right: 14px; }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 15px;
+      transform: translateX(-50%);
+      width: min(760px, calc(100% - 40px));
+      color: #fff;
+      text-align: center;
+    }
+
+    .lightbox-caption strong {
+      display: block;
+      font-size: 1.03rem;
+    }
+
+    .lightbox-caption span {
+      display: block;
+      margin-top: 3px;
+      color: #c9cdd1;
+      font-size: .9rem;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      color: #fff;
+      background: rgba(0,0,0,.42);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .lightbox {
+        padding: 65px 10px 70px;
+      }
+
+      .lightbox-prev,
+      .lightbox-next {
+        width: 46px;
+        height: 58px;
+        background: rgba(0,0,0,.50);
+      }
+
+      .lightbox-prev { left: 6px; }
+      .lightbox-next { right: 6px; }
+
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+      }
+
+      .gallery-hover {
+        opacity: 1;
+        inset: auto 12px 12px auto;
+        width: auto;
+        height: auto;
+        padding: 7px 11px;
+        border-radius: 999px;
+        flex-direction: row;
+        background: rgba(0,0,0,.68);
+        font-size: .78rem;
+      }
+
+      .gallery-icon {
+        font-size: 1rem;
+      }
+    }
+
+
     /* FOOTER */
 
     footer {
@@ -838,90 +1049,249 @@
 
       <p>
         Una selección de trabajos recientes realizados en distintas
-        zonas de Querétaro.
+        zonas de Querétaro. Selecciona cualquier proyecto para explorar todas sus fotografías.
       </p>
 
     </div>
 
     <div class="project-grid">
-      
-<article class="project-card">
-  <img src="img/Zakia_Noviembre_25_1.png" alt="Zakia" loading="lazy">
+
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Zakia, 6 fotografías"
+         data-gallery="zakia">
+  <div class="project-image-wrap">
+    <img src="img/Zakia_Noviembre_25_1.png" alt="Zakia" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Proyecto residencial</span>
     <h3>Zakia</h3>
+    <p class="gallery-count">6 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Tequisquiapan_Septiembre_25_1.png" alt="Tequisquiapan" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Tequisquiapan, 9 fotografías"
+         data-gallery="tequisquiapan">
+  <div class="project-image-wrap">
+    <img src="img/Tequisquiapan_Septiembre_25_1.png" alt="Tequisquiapan" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Cristal y aluminio</span>
     <h3>Tequisquiapan</h3>
+    <p class="gallery-count">9 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/PEDRO_ESCOBEDO_NOV_25_1.png" alt="Pedro Escobedo" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Pedro Escobedo, 21 fotografías"
+         data-gallery="pedro-escobedo">
+  <div class="project-image-wrap">
+    <img src="img/PEDRO_ESCOBEDO_NOV_25_1.png" alt="Pedro Escobedo" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Cancelería y cristal</span>
     <h3>Pedro Escobedo</h3>
+    <p class="gallery-count">21 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Col_SanJavier_Septiembre_25_1.png" alt="San Javier" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería San Javier, 6 fotografías"
+         data-gallery="san-javier">
+  <div class="project-image-wrap">
+    <img src="img/Col_SanJavier_Septiembre_25_1.png" alt="San Javier" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Proyecto residencial</span>
     <h3>San Javier</h3>
+    <p class="gallery-count">6 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/El_Marques_Octubre_25_1.png" alt="El Marqués" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería El Marqués, 4 fotografías"
+         data-gallery="el-marques">
+  <div class="project-image-wrap">
+    <img src="img/El_Marques_Octubre_25_1.png" alt="El Marqués" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Trabajo a la medida</span>
     <h3>El Marqués</h3>
+    <p class="gallery-count">4 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Domo_Septiembre_25_1.png" alt="Domo" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Domo, 4 fotografías"
+         data-gallery="domo">
+  <div class="project-image-wrap">
+    <img src="img/Domo_Septiembre_25_1.png" alt="Domo" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Domos y cubiertas</span>
     <h3>Domo</h3>
+    <p class="gallery-count">4 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Gasolinera_Septiembre_25_1.png" alt="Gasolinera" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Gasolinera, 5 fotografías"
+         data-gallery="gasolinera">
+  <div class="project-image-wrap">
+    <img src="img/Gasolinera_Septiembre_25_1.png" alt="Gasolinera" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Proyecto comercial</span>
     <h3>Gasolinera</h3>
+    <p class="gallery-count">5 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Col_Centro_Octubre_25_1.png" alt="Centro" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Centro, 6 fotografías"
+         data-gallery="centro">
+  <div class="project-image-wrap">
+    <img src="img/Col_Centro_Octubre_25_1.png" alt="Centro" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Proyecto urbano</span>
     <h3>Centro</h3>
+    <p class="gallery-count">6 fotografías · Explorar galería</p>
   </div>
 </article>
 
 
-<article class="project-card">
-  <img src="img/Milenio_Noviembre_35_1.png" alt="Milenio" loading="lazy">
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Milenio, 5 fotografías"
+         data-gallery="milenio">
+  <div class="project-image-wrap">
+    <img src="img/Milenio_Noviembre_35_1.png" alt="Milenio" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
   <div class="project-info">
     <span>Cristal y aluminio</span>
     <h3>Milenio</h3>
+    <p class="gallery-count">5 fotografías · Explorar galería</p>
+  </div>
+</article>
+
+
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Arnulfo Miramontes, 5 fotografías"
+         data-gallery="arnulfo-miramontes">
+  <div class="project-image-wrap">
+    <img src="img/Arnulfo_Miramontes_Septiembre_25_1.png" alt="Arnulfo Miramontes" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
+  <div class="project-info">
+    <span>Trabajo residencial</span>
+    <h3>Arnulfo Miramontes</h3>
+    <p class="gallery-count">5 fotografías · Explorar galería</p>
+  </div>
+</article>
+
+
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Mirador, 4 fotografías"
+         data-gallery="mirador">
+  <div class="project-image-wrap">
+    <img src="img/Mirador_Octubre_25_1.png" alt="Mirador" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
+  <div class="project-info">
+    <span>Cristal y aluminio</span>
+    <h3>Mirador</h3>
+    <p class="gallery-count">4 fotografías · Explorar galería</p>
+  </div>
+</article>
+
+
+<article class="project-card gallery-card"
+         tabindex="0"
+         role="button"
+         aria-label="Abrir galería Las Palmas, 2 fotografías"
+         data-gallery="palmas">
+  <div class="project-image-wrap">
+    <img src="img/Palmas_Octubre_25_1.png" alt="Las Palmas" loading="lazy">
+    <div class="gallery-hover">
+      <span class="gallery-icon">⌕</span>
+      <span>Ver galería</span>
+    </div>
+  </div>
+  <div class="project-info">
+    <span>Proyecto local</span>
+    <h3>Las Palmas</h3>
+    <p class="gallery-count">2 fotografías · Explorar galería</p>
   </div>
 </article>
 
@@ -1017,6 +1387,39 @@
 
 </main>
 
+
+
+<div class="lightbox"
+     id="galleryLightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Galería de proyectos"
+     aria-hidden="true">
+
+  <button class="lightbox-close" id="lightboxClose"
+          aria-label="Cerrar galería">&times;</button>
+
+  <button class="lightbox-prev" id="lightboxPrev"
+          aria-label="Fotografía anterior">&#10094;</button>
+
+  <div class="lightbox-stage" id="lightboxStage">
+    <img class="lightbox-img"
+         id="lightboxImage"
+         src=""
+         alt="">
+
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+
+    <div class="lightbox-caption">
+      <strong id="lightboxTitle"></strong>
+      <span id="lightboxCaption"></span>
+    </div>
+  </div>
+
+  <button class="lightbox-next" id="lightboxNext"
+          aria-label="Fotografía siguiente">&#10095;</button>
+
+</div>
 
 <a class="whatsapp-float"
    href="https://wa.me/5214421917705?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20con%20Vidrier%C3%ADa%20Palmas."
@@ -1132,6 +1535,278 @@
       document.body.classList.remove("menu-open");
     });
   });
+
+  /* Galerías de proyectos */
+  const galleryData = {
+  "zakia": [
+    "img/Zakia_Noviembre_25_1.png",
+    "img/Zakia_Noviembre_25_2.png",
+    "img/Zakia_Noviembre_25_3.png",
+    "img/Zakia_Noviembre_25_4.png",
+    "img/Zakia_Noviembre_25_5.png",
+    "img/Zakia_Noviembre_25_6.png"
+  ],
+  "tequisquiapan": [
+    "img/Tequisquiapan_Septiembre_25_1.png",
+    "img/Tequisquiapan_Septiembre_25_2.png",
+    "img/Tequisquiapan_Septiembre_25_3.png",
+    "img/Tequisquiapan_Septiembre_25_4.png",
+    "img/Tequisquiapan_Septiembre_25_5.png",
+    "img/Tequisquiapan_Septiembre_25_6.png",
+    "img/Tequisquiapan_Septiembre_25_7.png",
+    "img/Tequisquiapan_Septiembre_25_8.png",
+    "img/Tequisquiapan_Septiembre_25_9.png"
+  ],
+  "pedro-escobedo": [
+    "img/PEDRO_ESCOBEDO_NOV_25_1.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_2.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_3.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_4.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_5.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_6.png",
+    "img/PEDRO_ESCOBEDO_NOV_25_7.png",
+    "img/Pedro_Escobedo_Nov_25_8.png",
+    "img/Pedro_Escobedo_2_Nov_25_1.png",
+    "img/Pedro_Escobedo_2_Nov_25_2.png",
+    "img/Pedro_Escobedo_2_Nov_25_3.png",
+    "img/Pedro_Escobedo_2_Nov_25_4.png",
+    "img/Pedro_Escobedo_2_Nov_25_5.png",
+    "img/Pedro_Escobedo_2_Nov_25_6.png",
+    "img/Pedro_Escobedo_2_Nov_25_7.png",
+    "img/Pedro_Escobedo_Septiembre_1.png",
+    "img/Pedro_Escobedo_Septiembre_2.png",
+    "img/Pedro_Escobedo_Septiembre_3.png",
+    "img/Pedro_Escobedo_Septiembre_4.png",
+    "img/Pedro_Escobedo_Septiembre_5.png",
+    "img/Pedro_Escobedo_Septiembre_6.png"
+  ],
+  "san-javier": [
+    "img/Col_SanJavier_Septiembre_25_1.png",
+    "img/Col_SanJavier_Septiembre_25_2.png",
+    "img/Col_SanJavier_Septiembre_25_3.png",
+    "img/Col_SanJavier_Septiembre_25_4.png",
+    "img/Col_SanJavier_Septiembre_25_5.png",
+    "img/Col_SanJavier_Septiembre_25_6.png"
+  ],
+  "el-marques": [
+    "img/El_Marques_Octubre_25_1.png",
+    "img/El_Marques_Octubre_25_2.png",
+    "img/El_Marques_Octubre_25_3.png",
+    "img/El_Marques_Octubre_25_4.png"
+  ],
+  "domo": [
+    "img/Domo_Septiembre_25_1.png",
+    "img/Domo_Septiembre_25_2.png",
+    "img/Domo_Septiembre_25_3.png",
+    "img/Domo_Septiembre_25_4.png"
+  ],
+  "gasolinera": [
+    "img/Gasolinera_Septiembre_25_1.png",
+    "img/Gasolinera_Septiembre_25_2.png",
+    "img/Gasolinera_Septiembre_25_3.png",
+    "img/Gasolinera_Septiembre_25_4.png",
+    "img/Gasolinera_Septiembre_25_5.png"
+  ],
+  "centro": [
+    "img/Col_Centro_Octubre_25_1.png",
+    "img/Col_Centro_Octubre_25_2.png",
+    "img/Col_Centro_Octubre_25_3.png",
+    "img/Col_Centro_Octubre_25_4.png",
+    "img/Col_Centro_Octubre_25_5.png",
+    "img/Col_Centro_Octubre_25_6.png"
+  ],
+  "milenio": [
+    "img/Milenio_Noviembre_35_1.png",
+    "img/Milenio_Noviembre_35_2.png",
+    "img/Milenio_Noviembre_35_3.png",
+    "img/Milenio_Noviembre_35_4.png",
+    "img/Milenio_Noviembre_35_5.png"
+  ],
+  "arnulfo-miramontes": [
+    "img/Arnulfo_Miramontes_Septiembre_25_1.png",
+    "img/Arnulfo_Miramontes_Septiembre_25_2.png",
+    "img/Arnulfo_Miramontes_Septiembre_25_3.png",
+    "img/Arnulfo_Miramontes_Septiembre_25_4.png",
+    "img/Arnulfo_Miramontes_Septiembre_25_5.png"
+  ],
+  "mirador": [
+    "img/Mirador_Octubre_25_1.png",
+    "img/Mirador_Octubre_25_2.png",
+    "img/Mirador_Octubre_25_3.png",
+    "img/Mirador_Octubre_25_4.png"
+  ],
+  "palmas": [
+    "img/Palmas_Octubre_25_1.png",
+    "img/Palmas_Octubre_25_2.png"
+  ],
+  "otros": [
+    "img/Octubre_25_1.png",
+    "img/Octubre_25_2.png",
+    "img/Octubre_25_3.png",
+    "img/Octubre_25_4.png",
+    "img/Octubre_25_5.png",
+    "img/Octubre_25_6.png",
+    "img/Octubre_25_7.png",
+    "img/Septiembre_25_1.png",
+    "img/Septiembre_25_2.png",
+    "img/Septiembre_25_3.png",
+    "img/Septiembre_25_4.png"
+  ],
+  "oficial": [
+    "img/oficial/01-vidrio-palmas.jpg",
+    "img/oficial/02-vidrio-palmas.jpg",
+    "img/oficial/03-vidrio-palmas.jpg",
+    "img/oficial/04-vidrio-palmas.jpg",
+    "img/oficial/05-vidrio-palmas.jpg",
+    "img/oficial/06-vidrio-palmas.jpg",
+    "img/oficial/07-cancel-bano-templado.jpg",
+    "img/oficial/08-vidrio-templado.jpg",
+    "img/oficial/09-puertas-decoradas-vidrio.jpg",
+    "img/oficial/10-puerta-vidrio.jpg",
+    "img/oficial/11-puerta-corrediza-vidrio.jpg",
+    "img/oficial/12-puerta.jpg",
+    "img/oficial/13-espejos.jpg",
+    "img/oficial/14-cancel-vidrio.jpg",
+    "img/oficial/15-canceles-vidrio.jpg",
+    "img/oficial/16-bano-cancel-templado.jpg"
+  ]
+};
+  const galleryTitles = {
+  "zakia": "Zakia",
+  "tequisquiapan": "Tequisquiapan",
+  "pedro-escobedo": "Pedro Escobedo",
+  "san-javier": "San Javier",
+  "el-marques": "El Marqués",
+  "domo": "Domo",
+  "gasolinera": "Gasolinera",
+  "centro": "Centro",
+  "milenio": "Milenio",
+  "arnulfo-miramontes": "Arnulfo Miramontes",
+  "mirador": "Mirador",
+  "palmas": "Las Palmas"
+};
+
+  const lightbox = document.getElementById("galleryLightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxTitle = document.getElementById("lightboxTitle");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+  const lightboxCounter = document.getElementById("lightboxCounter");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const lightboxStage = document.getElementById("lightboxStage");
+
+  let activeGallery = null;
+  let activeIndex = 0;
+  let lastGalleryTrigger = null;
+
+  function renderLightbox() {
+    if (!activeGallery) return;
+
+    const images = galleryData[activeGallery];
+    const src = images[activeIndex];
+    const title = galleryTitles[activeGallery] || "Vidriería Palmas";
+
+    lightboxImage.src = src;
+    lightboxImage.alt = `${title} · fotografía ${activeIndex + 1}`;
+    lightboxTitle.textContent = title;
+    lightboxCaption.textContent = "Trabajo realizado por Vidriería Palmas";
+    lightboxCounter.textContent = `${activeIndex + 1} / ${images.length}`;
+  }
+
+  function openGallery(id, trigger) {
+    if (!galleryData[id] || !galleryData[id].length) return;
+
+    activeGallery = id;
+    activeIndex = 0;
+    lastGalleryTrigger = trigger || null;
+
+    renderLightbox();
+
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    lightboxClose.focus();
+  }
+
+  function closeGallery() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+
+    lightboxImage.src = "";
+    activeGallery = null;
+
+    if (lastGalleryTrigger) lastGalleryTrigger.focus();
+  }
+
+  function nextImage() {
+    if (!activeGallery) return;
+    const images = galleryData[activeGallery];
+    activeIndex = (activeIndex + 1) % images.length;
+    renderLightbox();
+  }
+
+  function prevImage() {
+    if (!activeGallery) return;
+    const images = galleryData[activeGallery];
+    activeIndex = (activeIndex - 1 + images.length) % images.length;
+    renderLightbox();
+  }
+
+  document.querySelectorAll(".gallery-card").forEach(card => {
+    card.addEventListener("click", () => {
+      openGallery(card.dataset.gallery, card);
+    });
+
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openGallery(card.dataset.gallery, card);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeGallery);
+  lightboxNext.addEventListener("click", nextImage);
+  lightboxPrev.addEventListener("click", prevImage);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox || event.target === lightboxStage) {
+      closeGallery();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (!lightbox.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") closeGallery();
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") prevImage();
+  });
+
+  /* Swipe táctil */
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  lightboxStage.addEventListener("touchstart", event => {
+    if (!event.touches.length) return;
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  lightboxStage.addEventListener("touchend", event => {
+    if (!event.changedTouches.length) return;
+
+    const dx = event.changedTouches[0].clientX - touchStartX;
+    const dy = event.changedTouches[0].clientY - touchStartY;
+
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) nextImage();
+      else prevImage();
+    }
+  }, { passive: true });
+
 </script>
 
 </body>
