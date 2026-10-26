@@ -1,13 +1,23 @@
-# PRESCO — Sitio web versión 3 (texto completo)
+# PRESCO · Sitio corporativo V4
 
-**Contenido verificable:** `index.html` conserva íntegramente los apartados "¿Quiénes somos?", "Nuestra misión", "Nuestra visión" y "¿Dónde?" proporcionados por el cliente. Además, incorpora sin resumir los párrafos de atención a clientes, servicios y compromiso del documento.
+Esta versión parte del diseño visual de la V2 y conserva sus tarjetas verticales.
+Incluye íntegramente las secciones del cliente: ¿Quiénes somos?, Nuestra Misión,
+Nuestra Visión, ¿Dónde?, atención a clientes, cuatro servicios y Nuestro compromiso.
+Se eliminó la franja de revisión "Ver documento del cliente".
+Incluye un botón flotante de WhatsApp vinculado al número 442 320 30 81.
 
-**Redacciones alternativas:** `presentacion-empresarial.html` ofrece las redacciones alternativas de misión, visión y cobertura presentes en el documento recibido, además de la redacción original. No se mezclan ambas versiones para evitar atribuir al cliente una versión combinada que no ha aprobado.
+## Para revisar
+Abra `index.html` en su navegador. La vista previa HTML independiente también
+puede abrirse sin descomprimir el ZIP.
 
-**Auditoría:** `VERIFICACION_CONTENIDOS.txt` coteja literalmente 20 fragmentos. Se excluyen del sitio comercial las notas entre paréntesis del archivo original, que tienen apariencia de borrador.
+## Para publicar en GitHub Pages
+Copie `index.html`, `styles.css`, `script.js` y la carpeta `assets` dentro de
+`impulsa/presco/` reemplazando los archivos anteriores, y realice commit y push.
+La actualización de la página pública solo ocurrirá después de publicar esos cambios.
 
-**Vista local:** abrir `index.html` desde la carpeta extraída. No requiere servidor. La ruta completa del favicon es `assets/favicon.ico`.
+## Contacto
+El formulario abre WhatsApp con un mensaje precargado. No almacena los datos.
+El teléfono y los correos provienen del material proporcionado por PRESCO.
 
-**Publicación:** compatible con GitHub Pages, conservar estructura de archivos. No se ha publicado ni modificado ningún repositorio.
-
-**Antes de publicar:** confirmar autorización de uso de fotografías, medios de contacto, marca y texto definitivo ante la coexistencia de dos versiones del documento. El sitio muestra sólo la ciudad de Querétaro, no la dirección privada completa.
+**Antes de publicar**, confirme autorización para difundir imágenes, teléfono,
+correos y datos empresariales.

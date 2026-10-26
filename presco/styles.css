@@ -32,34 +32,28 @@
 @media(max-width:860px){.nav-wrap{height:76px}.menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;border:0;background:none;width:42px;height:42px;padding:9px}.menu-toggle span{width:24px;height:2px;background:var(--navy);display:block;border-radius:2px;transition:transform .2s,opacity .2s}.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:#fff;padding:12px 18px 20px;box-shadow:0 20px 24px rgba(10,20,42,.15);font-size:13px}.nav.open{display:flex}.nav a{padding:12px 8px}.nav .nav-cta{text-align:center;align-self:stretch;margin-top:8px;padding:14px}}
 @media(max-width:760px){.purpose-section{padding:73px 0 78px}.purpose-header{margin-bottom:29px}.purpose-grid{grid-template-columns:1fr;gap:16px}.purpose-card{padding:29px 26px 33px}.coverage-grid{grid-template-columns:1fr;gap:35px}.coverage-image img{height:370px}.coverage-copy h2{margin-bottom:24px}}
 
-/* PRESCO versión 3 — visibilidad de toda la redacción del cliente */
-:root{--readability:17px}
-.brand-slogan{font-size:clamp(2.7rem,4.8vw,5.3rem)!important;max-width:900px!important;line-height:1.12!important}
-.source-nav{background:#edf2f8;border-bottom:1px solid #dce5ef;padding:12px 0;color:#344561;font-size:12px}
-.source-nav>.container{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.source-nav a{font-weight:800;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
-.about-content p,.coverage-copy>p,.purpose-card p,.profile-text p,.commitment p{font-size:var(--readability);line-height:1.85;color:#3c4d65}
-.about-content .lead{font-size:18px!important;font-weight:600!important}
-.about-grid{align-items:start;grid-template-columns:.85fr 1.15fr;gap:78px}
-.about-image-wrap{position:sticky;top:130px}
-.purpose-card p{color:#f6f7fc}
-.purpose-grid{align-items:stretch}
-.customer-profile{background:#f4f7fa}
-.profile-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}
-.profile-intro h2{font-size:clamp(2rem,3vw,3.2rem);margin-bottom:22px}
-.profile-side-note{font-size:14px;line-height:1.9;color:#66758b;max-width:375px}
-.profile-text{border-left:4px solid var(--orange);padding-left:38px}
+/* PRESCO V4: additional institutional paragraphs, compatible with V2 layout. */
+.customer-profile{background:#f2f5f9}
+.profile-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:76px;align-items:start}
+.profile-intro h2{font-size:clamp(2rem,3.2vw,3.3rem);margin-bottom:25px}
+.profile-side-note{font-weight:700;color:var(--navy-soft);font-size:14px;line-height:1.85;max-width:390px}
+.profile-text{padding:5px 0 5px 32px;border-left:4px solid var(--orange)}
+.profile-text p{font-size:15.5px;line-height:1.9;margin:0 0 22px;color:var(--text)}
 .profile-text p:last-child{margin-bottom:0}
-.service-card{min-height:430px}
-.service-card p{font-size:15px;line-height:1.8}
-.section-heading>p{font-size:16px;max-width:420px}
-.commitment{background:#0d1c3a}
-.commitment-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
-.commitment h2{color:#fff}.commitment p{color:#d8e1f0}
-.commitment-highlight{font-size:clamp(1.2rem,2vw,1.65rem)!important;font-weight:600;line-height:1.55!important}
-.commitment-remaining{padding-top:48px}.commitment-remaining p{margin-bottom:23px}
-.nav{gap:15px;font-size:12px}
-.brand img{width:215px}
-#nosotros,#clientes,#mision-vision,#servicios,#experiencia,#compromiso{scroll-margin-top:100px}
-@media(max-width:1200px){.nav-wrap{height:78px}.menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;border:0;background:none;width:42px;height:42px;padding:9px}.menu-toggle span{width:24px;height:2px;background:var(--navy);display:block;border-radius:2px}.nav{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:#fff;padding:12px 24px 20px;box-shadow:0 20px 24px rgba(10,20,42,.15);font-size:14px}.nav.open{display:flex}.nav a{padding:12px 8px}.nav .nav-cta{text-align:center;align-self:stretch;margin-top:8px;padding:14px}}
-@media(max-width:760px){.source-nav>.container{align-items:flex-start;flex-direction:column}.about-grid,.profile-grid,.commitment-grid{grid-template-columns:1fr;gap:35px}.about-image-wrap{position:relative;top:auto}.profile-text{padding-left:20px}.commitment-remaining{padding-top:0}.about-content p,.coverage-copy>p,.purpose-card p,.profile-text p,.commitment p{font-size:16px}.hero .brand-slogan{font-size:clamp(2.5rem,9vw,3.5rem)!important}}
+.commitment{background:var(--navy-dark);color:#fff}
+.commitment-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:75px}
+.commitment h2{color:#fff;font-size:clamp(2.1rem,3.5vw,3.5rem);margin:0 0 25px}
+.commitment p{color:#e0e7f5;line-height:1.9;font-size:15.5px}
+.commitment-highlight{font-size:clamp(1.2rem,1.75vw,1.5rem)!important;line-height:1.6!important;font-weight:600;margin:0}
+.commitment-remaining{border-left:3px solid var(--orange);padding:4px 0 0 32px}
+.commitment-remaining p:last-child{margin-bottom:0}
+/* The WhatsApp button is independent of the contact form and always in view. */
+.whatsapp-float{position:fixed;z-index:110;right:26px;bottom:26px;display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25));transition:transform .22s ease}
+.whatsapp-float:hover{transform:translateY(-4px)}
+.whatsapp-float:focus-visible{outline:3px solid #ff8d16;outline-offset:5px;border-radius:40px}
+.whatsapp-float-label{font-family:'DM Sans',Arial,sans-serif;background:#fff;color:#183052;padding:10px 14px;border-radius:30px;font-weight:700;font-size:12px;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.12)}
+.whatsapp-float-icon{width:61px;height:61px;display:flex;align-items:center;justify-content:center;background:#20c465;border:2px solid #fff;border-radius:50%}
+.whatsapp-float-icon svg{width:37px;height:37px;display:block;color:#fff}
+@media(max-width:1000px){.profile-grid,.commitment-grid{gap:42px}}
+@media(max-width:760px){.profile-grid,.commitment-grid{grid-template-columns:1fr;gap:29px}.profile-text,.commitment-remaining{padding:0 0 0 23px}.whatsapp-float{right:17px;bottom:18px}.whatsapp-float-icon{width:57px;height:57px}.whatsapp-float-label{display:none}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float{transition:none}}
