@@ -1,22 +1,13 @@
-# PRESCO — propuesta inicial de sitio web
+# PRESCO — Sitio web versión 3 (texto completo)
 
-Sitio corporativo estático, adaptable a móviles y listo para desplegar como contenido estático (por ejemplo, en GitHub Pages).
+**Contenido verificable:** `index.html` conserva íntegramente los apartados "¿Quiénes somos?", "Nuestra misión", "Nuestra visión" y "¿Dónde?" proporcionados por el cliente. Además, incorpora sin resumir los párrafos de atención a clientes, servicios y compromiso del documento.
 
-## Cómo revisarlo
+**Redacciones alternativas:** `presentacion-empresarial.html` ofrece las redacciones alternativas de misión, visión y cobertura presentes en el documento recibido, además de la redacción original. No se mezclan ambas versiones para evitar atribuir al cliente una versión combinada que no ha aprobado.
 
-Abre `index.html` en tu navegador, sin necesidad de servidor. Mantén las carpetas `assets/` y los archivos `styles.css` y `script.js` junto a `index.html`.
+**Auditoría:** `VERIFICACION_CONTENIDOS.txt` coteja literalmente 20 fragmentos. Se excluyen del sitio comercial las notas entre paréntesis del archivo original, que tienen apariencia de borrador.
 
-## Publicación con GitHub Pages
+**Vista local:** abrir `index.html` desde la carpeta extraída. No requiere servidor. La ruta completa del favicon es `assets/favicon.ico`.
 
-Sube el contenido de esta carpeta a la raíz de un repositorio nuevo. En GitHub, ve a Settings > Pages > Build and deployment > Deploy from a branch, selecciona `main` y `/ (root)`.
+**Publicación:** compatible con GitHub Pages, conservar estructura de archivos. No se ha publicado ni modificado ningún repositorio.
 
-## Aspectos que deben confirmarse antes de publicar
-
-- Titularidad y autorización para mostrar las fotografías.
-- Teléfono de contacto WhatsApp: +52 442 320 30 81.
-- Correos: manpm@hotmail.com y marcos_mtz_r@hotmail.com.
-- Nombre de dominio final para agregar URL canónica y metadatos sociales absolutos.
-- La dirección postal completa del documento se omitió inicialmente por privacidad; se puede incorporar si es domicilio comercial publicado.
-- La gestoría ante CFE es un servicio de apoyo de PRESCO; el sitio no implica afiliación a CFE.
-
-El formulario **no recopila ni almacena datos**: prepara un mensaje y abre WhatsApp para su revisión y envío por parte de la persona visitante.
+**Antes de publicar:** confirmar autorización de uso de fotografías, medios de contacto, marca y texto definitivo ante la coexistencia de dos versiones del documento. El sitio muestra sólo la ciudad de Querétaro, no la dirección privada completa.
